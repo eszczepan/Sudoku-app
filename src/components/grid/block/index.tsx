@@ -2,12 +2,12 @@ import React, { FC } from 'react'
 
 import { Container } from './styles'
 
-interface Props {
+interface IProps {
   colIndex: number
   rowIndex: number
 }
 
-const Block: FC<Props> = ({ colIndex, rowIndex }) => {
+const Block: FC<IProps> = ({ colIndex, rowIndex }) => {
   return <Container data-cy={`block-${rowIndex}-${colIndex}`}></Container>
 }
 

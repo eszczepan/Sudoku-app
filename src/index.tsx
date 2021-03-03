@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 import { ThemeProvider } from 'styled-components'
 
 import { unregister } from './core'
-import { GlobalStyles, theme } from './styles'
-import { Card, Content, Title, Grid } from './components'
+import { GlobalStyles, theme } from 'styles'
+import { Card, Content, Title, Grid } from 'components'
 
 ReactDOM.render(
   <>
