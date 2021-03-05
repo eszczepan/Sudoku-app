@@ -28,7 +28,7 @@ const Grid: FC = () => {
   const create = useCallback(() => dispatch(createGrid()), [dispatch])
   const fill = useCallback(
     (n: NUMBERS) => {
-      if (state.selectedBlock && state.selectedValue === 0) {
+      if (state.selectedBlock && state.selectedValue) {
         dispatch(fillBlock(n, state.selectedBlock))
       }
     },
