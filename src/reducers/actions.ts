@@ -6,7 +6,7 @@ import * as types from './types'
 
 export const createGrid = (): Action => ({ type: types.CREATE_GRID })
 
-export const fillGrid = (value: NUMBERS, coords: BLOCK_COORDS): AnyAction => ({
+export const fillBlock = (value: NUMBERS, coords: BLOCK_COORDS): AnyAction => ({
   coords,
   type: types.FILL_BLOCK,
   value,
