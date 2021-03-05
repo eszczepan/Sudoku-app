@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import useMousetrap from 'react-hook-mousetrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dispatch, AnyAction } from 'redux'
 
@@ -31,27 +30,6 @@ const Block: FC<IProps> = ({ colIndex, rowIndex }) => {
   function handleClick() {
     if (!state.isActive) dispatch(selectBlock([rowIndex, colIndex]))
   }
-
-  function moveUp() {
-    console.log('Up')
-  }
-
-  function moveDown() {
-    console.log('Down')
-  }
-
-  function moveLeft() {
-    console.log('Left')
-  }
-
-  function moveRight() {
-    console.log('Right')
-  }
-
-  useMousetrap('up', moveUp)
-  useMousetrap('down', moveDown)
-  useMousetrap('left', moveLeft)
-  useMousetrap('right', moveRight)
 
   return (
     <Container
