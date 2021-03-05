@@ -30,9 +30,9 @@ function solveGrid(grid: GRID) {
           }
         }
       }
+      break
     }
   }
-
   grid[col][row] = 0
 }
 
