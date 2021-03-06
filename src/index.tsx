@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 
 import { configureStore, unregister } from './core'
 import { GlobalStyles, theme } from 'styles'
-import { Card, Content, Title, Grid, Numbers } from 'components'
+import { Card, Content, Title, Grid, Numbers, NewButton } from 'components'
 
 const store = configureStore()
 
@@ -17,6 +17,7 @@ ReactDOM.render(
         <Content data-cy="content">
           <Title data-cy="title">Sudoku</Title>
           <Card data-cy="card">
+            <NewButton />
             <Grid />
             <Numbers />
           </Card>
