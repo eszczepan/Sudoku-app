@@ -4,7 +4,7 @@ import useMousetrap from 'react-hook-mousetrap'
 import { AnyAction, Dispatch } from 'redux'
 
 import { createGrid, IReducer, selectBlock, fillBlock } from 'reducers'
-import { BLOCK_COORDS, INDEX, N, NUMBERS } from 'typings'
+import { BLOCK_COORDS, INDEX, N, NUMBERS, GRID } from 'typings'
 
 import Block from './block'
 import { Container, Row } from './styles'
@@ -12,16 +12,18 @@ import { Container, Row } from './styles'
 interface IState {
   selectedBlock?: BLOCK_COORDS
   selectedValue?: N
+  solvedGrid?: GRID
 }
 
 const Grid: FC = () => {
   const state = useSelector<IReducer, IState>(
-    ({ selectedBlock, workingGrid }) => ({
+    ({ selectedBlock, workingGrid, solvedGrid }) => ({
       selectedBlock,
       selectedValue:
         workingGrid && selectedBlock
           ? workingGrid[selectedBlock[0]][selectedBlock[1]]
           : 0,
+      solvedGrid,
     })
   )
   const dispatch = useDispatch<Dispatch<AnyAction>>()
@@ -93,8 +95,8 @@ const Grid: FC = () => {
   useMousetrap('right', moveRight)
 
   useEffect(() => {
-    create()
-  }, [create])
+    if (!state.solvedGrid) create()
+  }, [create, state.solvedGrid])
 
   return (
     <Container data-cy="grid-container">
